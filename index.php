@@ -17,6 +17,11 @@ while($data = $res->fetch_assoc()):
     echo"Nama: ". $data["Nama"].'<br>';
     echo"Alamat: ". $data["Alamat"].'<br>';
     echo"Jabatan: ". $data["Jabatan"].'<br>';
+    echo"<br>";
 endwhile;
+
+$count = $conn->query("SELECT count(*) as total from User");
+$data = $count->fetch_assoc();
+echo "Total User yang tersedia: ".$data['total'];
 
 mysqli_close($conn);
